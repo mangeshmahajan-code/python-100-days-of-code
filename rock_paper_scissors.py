@@ -34,6 +34,7 @@ else:
   try:
     while m=="2":
       name1=input ("enter your name:")
+      name2=input ("enter your name:")
       x=input("choose : rock,paper,scissors :")
       y=input("choose : rock,paper,scissors :")
       if y==z[x]:

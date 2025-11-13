@@ -17,12 +17,16 @@ input.grid(column=1,row=0)
 #Label
 mile = Label(text="Mile")
 mile.grid(column=2,row=0)
+
 is_equal = Label(text="is equal to")
 is_equal.grid(column=0 ,row=1)
+
 km = Label(text="Km")
 km.grid(column=2 ,row=1)
-km_equilivant = Label(text="")
+
+km_equilivant = Label(text="0")
 km_equilivant.grid(column=1 ,row=1)
+
 #Button
 button = Button(text="calculate",command=mile_to_km)
 button.grid(column=1 ,row=2)

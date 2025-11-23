@@ -6,7 +6,7 @@ from random import randint,choice
 BACKGROUND_COLOR = "#B1DDC6"
 SEC_COUNT = 3
 timer = None
-data = pandas.read_csv("D:/my_python_learning/udemy_projects/day_31/flash-card-project-start/data/french_to_Hindi.csv")
+data = pandas.read_csv("D:/my_python_learning/udemy_projects/day_31/flash-card-project-start/data/french_to_marathi.csv")
 hindi_words = data["Hindi"].to_list()
 french_words = data["French"].to_list()
 known_word_list =[]

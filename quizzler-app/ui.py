@@ -1,6 +1,7 @@
 from tkinter import *
 from quiz_brain import QuizBrain
-
+ 
+ # UI setup using tkinter and give user feedback interms of flashing green or red on canvas 
 THEME_COLOR = "#375362"
 
 class QuizeInterface ():

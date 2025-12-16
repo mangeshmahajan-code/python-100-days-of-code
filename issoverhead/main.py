@@ -1,12 +1,16 @@
 import requests
 from datetime import datetime
 import smtplib
+import os
+from dotenv import load_dotenv
 
-SENDER_EMAIL = "mangesmahajan@gmail.com"
-password = "acisoqfadsngobnu" 
-EMAIL_ADDRS =  "mangesmahajan@gmail.com"
-MY_LAT =18.584781
-MY_LONG =73.736593
+load_dotenv()
+
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+password = os.getenv("password") 
+EMAIL_ADDRS =  os.getenv("EMAIL_ADDRS")
+LAT =os.getenv("YOUR_LAT")
+LONG =os.getenv("YOUR_LONG")
 
 def send_email (email_addrs):
     '''Send a email when the iss is near the location .'''
@@ -24,7 +28,7 @@ def is_iss_overhead():
 
     iss_latitude = float(data["iss_position"]["latitude"])
     iss_longitude = float(data["iss_position"]["longitude"])
-    if MY_LAT-5<=iss_latitude<= MY_LAT+5 and MY_LONG-5<= iss_longitude<=MY_LAT+5:
+    if LAT-5<=iss_latitude<= LAT+5 and LONG-5<= iss_longitude<=LAT+5:
         return True
     else:
         False
@@ -34,8 +38,8 @@ def is_iss_overhead():
 def is_it_dark():
     '''check is it night then return true else false'''
     parameters = {
-        "lat": MY_LAT,
-        "lng": MY_LONG,
+        "lat": LAT,
+        "lng": LONG,
         "formatted": 0,
     }
     response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)

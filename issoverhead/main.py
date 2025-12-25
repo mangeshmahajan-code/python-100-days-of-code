@@ -11,6 +11,8 @@ password = os.getenv("password")
 EMAIL_ADDRS =  os.getenv("EMAIL_ADDRS")
 LAT =os.getenv("YOUR_LAT")
 LONG =os.getenv("YOUR_LONG")
+SUN_API=os.getenv("sun_api")
+ISS_API=os.getenv("iss_api")
 
 def send_email (email_addrs):
     '''Send a email when the iss is near the location .'''
@@ -22,7 +24,7 @@ def send_email (email_addrs):
 
 def is_iss_overhead():
     '''Check the location of iss and if it's near your location return true else false'''
-    response = requests.get(url="http://api.open-notify.org/iss-now.json")
+    response = requests.get(url=ISS_API)
     response.raise_for_status()
     data = response.json()
 
@@ -42,7 +44,7 @@ def is_it_dark():
         "lng": LONG,
         "formatted": 0,
     }
-    response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)
+    response = requests.get(SUN_API, params=parameters)
     response.raise_for_status()
     data = response.json()
     sunrise = int(data["results"]["sunrise"].split("T")[1].split(":")[0])
@@ -58,7 +60,3 @@ def is_it_dark():
 # Check the conditon and run the send email when true
 if is_iss_overhead and is_it_dark :
    send_email(EMAIL_ADDRS)
-
-
-
-

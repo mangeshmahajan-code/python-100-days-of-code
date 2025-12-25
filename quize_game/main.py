@@ -13,3 +13,4 @@ for question in question_data :
 quiz=QuizBrain(question_bank)
 for question in question_bank :
     quiz.next_question()
+    

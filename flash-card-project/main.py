@@ -6,7 +6,7 @@ from random import randint,choice
 BACKGROUND_COLOR = "#B1DDC6"
 SEC_COUNT = 3
 timer = None
-data = pandas.read_csv("D:/my_python_learning/udemy_projects/day_31/flash-card-project-start/data/french_to_marathi.csv")
+data = pandas.read_csv("Path for file french_to_marathi.csv")
 hindi_words = data["Hindi"].to_list()
 french_words = data["French"].to_list()
 known_word_list =[]
@@ -20,8 +20,6 @@ def time_over ():
     canvas.itemconfig(title_text, text="मराठी")
     canvas.itemconfig(word_text, text=hindi_words[word_index])
 
-
-
 def counter (count):
     global timer
     if count >  0:
@@ -29,8 +27,6 @@ def counter (count):
 
     else :
         time_over()
-
-
 
 def known_word():
     known_word_list.append(word_index)  
@@ -51,16 +47,15 @@ def next_word():
     canvas.itemconfig(word_text,text=french_words[word_index] )
     counter(SEC_COUNT)
 
-
 # UI setup
 window = Tk()
 window.title("Flash Cards")
 window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
 
-card_front = PhotoImage(file="udemy_projects/day_31/flash-card-project-start/images/card_front.png")
-card_back = PhotoImage(file="udemy_projects/day_31/flash-card-project-start/images/card_back.png")
-wrong_img = PhotoImage(file="udemy_projects/day_31/flash-card-project-start/images/wrong.png")
-right_img = PhotoImage(file="udemy_projects/day_31/flash-card-project-start/images/right.png")
+card_front = PhotoImage(file="Path for flie card_front.png")
+card_back = PhotoImage(file="Path for flie card_back.png")
+wrong_img = PhotoImage(file="Path for flie wrong.png")
+right_img = PhotoImage(file="Path for flie right.png")
 
 choose_the_word_index()
 
@@ -70,13 +65,10 @@ canvas.grid(column=0, row=0, columnspan=2)
 title_text = canvas.create_text(400, 150, text="French", font=("Arial", 40, "italic"))
 word_text = canvas.create_text(400, 263, text=french_words[word_index], font=("Arial", 60, "bold"))
 
-
 right_button = Button(image=right_img, highlightthickness=0,command=known_word)
 right_button.grid(column=1, row=1)
 wrong_button = Button(image=wrong_img, highlightthickness=0,command=next_word)
 wrong_button.grid(column=0, row=1)
 next_word()
-
-
 
 window.mainloop()

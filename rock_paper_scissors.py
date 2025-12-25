@@ -3,7 +3,6 @@ import random
 pointofx=0
 pointofy=0
 print("let's play rock,paper,scissors\n".center(50))
-# words= ["choose : rock,paper,scissors"]
 z={"rock":"paper","paper":"scissors","scissors":"rock"}
 m=input("do you want to play with computer or friend?\nfor computer press 1\nfor friend press 2\nyour choise is:")
 while m=="1":
@@ -25,12 +24,6 @@ while m=="1":
   print("your point is",point)
   
 else:
-   
-
-
-  # while True:
-# else :
-  
   try:
     while m=="2":
       name1=input ("enter your name:")

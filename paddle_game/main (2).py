@@ -44,5 +44,4 @@ while game_is_on :
         ball.rest_position()
         score.l_point()
 
-
 screen.exitonclick()

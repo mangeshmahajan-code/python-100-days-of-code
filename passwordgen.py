@@ -13,9 +13,10 @@ else:
  print ("pin generator")
  input= input("Enter the length of the pin: ")
  length = int(input)
-#  characters = "0123456789"
+
  characters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
  pin = "".join(random.choice(characters) for i in range(length))
  print("Generated pin:", pin)
  print("Thank you for using the pin generator!")
+ 

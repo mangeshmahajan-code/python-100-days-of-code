@@ -45,6 +45,4 @@ while game_is_on :
     if state_guess_correctly == total_state :
         game_is_on = False
 
-
 screen.exitonclick()
-

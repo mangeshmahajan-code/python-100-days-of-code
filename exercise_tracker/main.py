@@ -2,7 +2,6 @@ import requests
 from datetime import datetime
 from dotenv import load_dotenv
 import os
-
 load_dotenv()
 
 APP_ID = os.getenv("NIX_APP_ID")

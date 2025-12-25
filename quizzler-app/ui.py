@@ -25,8 +25,8 @@ class QuizeInterface ():
             fill=THEME_COLOR,
             font=("Arial",20,"italic")
             )
-        right_image = PhotoImage(file="D:/my_python_learning/udemy_projects/day_34/quizzler-app-start/images/true.png")
-        false_image= PhotoImage(file="D:/my_python_learning/udemy_projects/day_34/quizzler-app-start/images/false.png")
+        right_image = PhotoImage(file="Path for file true.png")
+        false_image= PhotoImage(file="Path for file false.png")
 
         self.right_button = Button(image=right_image,bg=THEME_COLOR,highlightthickness=0,command=self.check_answer_for_true)   
         self.false_button = Button(image=false_image,bg=THEME_COLOR,highlightthickness=0,command=self.check_answer_for_false) 

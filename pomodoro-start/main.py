@@ -85,8 +85,4 @@ start_button.grid(column=0,row= 2)
 reset_button = Button(text="reset",highlightthickness=0,command=reset_timer)
 reset_button.grid(column=2,row= 2) 
 
-
 window.mainloop()
-
-# Bugs to fix 
-# if we press the start button multipal time,timer go crazy 

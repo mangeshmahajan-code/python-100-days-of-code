@@ -67,10 +67,11 @@ def report(present_resources_list,coffe_resource_details):
 on_off="on"
 coin_amount =0
 while on_off=="on":
-    user_coffe_type=input("What would you like? (espresso/latte/cappuccino):").lower()
+    user_coffe_type=input("What would you like? (espresso/latte/cappuccino/off):").lower()
 
     if user_coffe_type=="off":
         on_off="off"
+        print("Thanks for using coffee machine.")
     elif user_coffe_type=="report":
         print(f"Water : {resources["water"]}ml\nMilk : {resources["milk"]}ml\nCoffee : {resources["coffee"]}g\nMoney : {coin_amount}")
 

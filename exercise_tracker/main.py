@@ -28,7 +28,6 @@ data ={
   "gender": "male" ,                
 }
 
-#
 response = requests.post(url=exercise_endpoint,json=data,headers=headers)
 result = response.json()
 print(response.status_code)
@@ -45,7 +44,6 @@ sheety_data = {
         "calories": api_output["nf_calories"]
     }
 }
-
 
 sheety_headers = {
     "Content-Type": "application/json",

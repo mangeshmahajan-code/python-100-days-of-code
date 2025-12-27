@@ -3,14 +3,14 @@ import turtle
 import csv
 
 #   setting the data in csv file as a list and dic
-data = pandas.read_csv("india_states_coordinates.csv")
+data = pandas.read_csv("state_with_coordinate.csv")
 state_list = data["state"].tolist()
 print(state_list)
 
 #   The setup of the blank indian map
 screen = turtle.Screen()
 screen.setup(width=700, height=700)
-image = "india_outline_map.gif"
+image = "image.gif"
 screen.addshape(image)
 turtle.shape(image)
 screen.title("indian state game ")

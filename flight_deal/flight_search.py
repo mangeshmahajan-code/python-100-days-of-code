@@ -82,7 +82,7 @@ class FlightSearch:
         adults=1,
         max_results=10,
         currency="INR",
-        
+        is_direct = True,   
     ):
         headers = {
             "Authorization": f"Bearer {self._token}"
@@ -96,9 +96,10 @@ class FlightSearch:
             "adults": adults,
             "currencyCode": currency,
             "max": max_results,
-            "nonStop":"true",
+            "nonStop":"true" if is_direct else "false",
         }
         response = requests.get(url=self.flight_offer_endpoint, headers=headers, params=params)
+        data= response.json()["data"]
         if response.status_code != 200:
                     print(f"check_flights() response code: {response.status_code}")
                     print("There was a problem with the flight search.\n"
@@ -107,6 +108,12 @@ class FlightSearch:
                         "-reference")
                     print("Response body:", response.text)
                     return None
+        if not data :
+            is_direct = False
+            print("No direct flight.\nSearching for connected flights.")
+            response = requests.get(url=self.flight_offer_endpoint,headers=headers, params=params)
+               
+
         return response.json()
     
 

@@ -24,6 +24,8 @@ class DataManager:
     "Authorization": f"Bearer {self.sheety_token}"
     }
         self.destination_data={}
+        self.user_sheety_endpoint=os.getenv("USER_SHTEETY_ENDPOINT")
+        self.users_data=[]
 
 
 
@@ -32,8 +34,9 @@ class DataManager:
         '''
     
         sheet_request=requests.get(url=self.sheety_endpoint,headers=self.sheety_headers)
-        # sheet_request.raise_for_status()
+        sheet_request.raise_for_status()
         data=sheet_request.json()
+        
         self.destination_data=data["prices"]
         return data["prices"]
     
@@ -51,3 +54,9 @@ class DataManager:
                 headers=self.sheety_headers
             )
             # responce.raise_for_status()
+
+    def get_customer_data(self):
+        responce=requests.get(url=self.user_sheety_endpoint,headers=self.sheety_headers)
+        return responce.json()
+        
+
